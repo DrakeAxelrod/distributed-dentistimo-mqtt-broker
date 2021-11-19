@@ -1,0 +1,17 @@
+{
+  "name": "project-16-project-gateway-and-logger",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "sub": "node ./src/test/Subscriber.js",
+    "pub": "node ./src/test/Subscriber.js"
+  },
+  "author": "DIT355-Team-16",
+  "license": "ISC",
+  "dependencies": {
+    "aedes": "latest",
+    "dotenv": "^10.0.0"
+  }
+}
