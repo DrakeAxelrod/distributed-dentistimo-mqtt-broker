@@ -1,23 +1,33 @@
+const dotenv = require("dotenv");
+dotenv.config();
 const mqtt = require("mqtt");
+const { log } = console;
 
-const broker_uri = "mqtt://localhost:1883";
+const port = process.env.PORT || "1883";
+const broker_uri = process.env.BROKER_URI || `mqtt://localhost:${port}`;
+const user = process.env.USERNAME || "admin";
+const pass = process.env.PASSWORD || "admin";
+const _topic = process.env.PASSWORD || "test";
 
-const client = mqtt.connect(broker_uri);
+const client = mqtt.connect(broker_uri, {
+  username: user,
+  password: pass,
+});
 
-client.on("connect", ack => {
-  console.log("connected!");
-  //console.log(ack);
-  client.subscribe("test", err => {
-    console.log(err);
+client.on("connect", (ack) => {
+  log("connected!");
+  //log(ack);
+  client.subscribe(_topic, (err) => {
+    log(err);
   });
 
   client.on("message", (topic, message) => {
-    console.log(topic);
+    log(topic);
     // message is Buffer
-    console.log(message.toString());
+    log(message.toString());
   });
 });
 
-client.on("error", err => {
-  console.log(err);
+client.on("error", (err) => {
+  log(err);
 });

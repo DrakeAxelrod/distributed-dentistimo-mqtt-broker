@@ -1,5 +1,2 @@
-const dotenv = require("dotenv");
-const Broker = require("./src/broker")
-
-dotenv.config();
-Broker.start()
+const Broker = require("./src/broker");
+Broker.start();

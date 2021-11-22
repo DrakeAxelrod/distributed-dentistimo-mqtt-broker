@@ -6,12 +6,13 @@
   "scripts": {
     "start": "node index.js",
     "sub": "node ./src/test/Subscriber.js",
-    "pub": "node ./src/test/Subscriber.js"
+    "pub": "node ./src/test/Publisher.js"
   },
   "author": "DIT355-Team-16",
   "license": "ISC",
   "dependencies": {
     "aedes": "latest",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "mqtt": "^4.2.8"
   }
 }
