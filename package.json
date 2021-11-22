@@ -2,7 +2,6 @@
   "name": "project-16-project-gateway-and-logger",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "start": "node index",
     "sub": "node ./src/test/Subscriber.js",
