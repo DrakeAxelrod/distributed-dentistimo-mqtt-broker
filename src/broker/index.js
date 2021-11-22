@@ -1,6 +1,7 @@
 const dotenv = require("dotenv");
 dotenv.config();
 const aedes = require("aedes");
+const ws = require("websocket-stream");
 const print = require("../util/Logging");
 const { log } = console;
 
@@ -22,10 +23,13 @@ const start = () => {
   const broker = aedes({
     authenticate: authenticate,
   });
-  const server = require("net").createServer(broker.handle);
+  const server = require("http").createServer();
+  //const server = require("net").createServer(broker.handle);
+  ws.createServer({ server: server }, broker.handle);
 
   server.listen(port, () => {
-    log("Broker listening on port:", port);
+    //log("Broker listening on port:", port);
+    log("websocket server listening on port ", port);
   });
 
   broker.on("client", (client) => {
