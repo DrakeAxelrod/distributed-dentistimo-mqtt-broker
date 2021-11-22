@@ -2,8 +2,15 @@
   "name": "project-16-project-gateway-and-logger",
   "version": "0.0.1",
   "description": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "imports": {
+  "@src/*": "./src/*",
+  "@util/*": "./util/*"
+  },
   "scripts": {
-    "start": "node index",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "sub": "node ./src/test/Subscriber.js",
     "pub": "node ./src/test/Publisher.js"
   },
@@ -15,6 +22,7 @@
   "dependencies": {
     "aedes": "latest",
     "dotenv": "^10.0.0",
+    "esm": "^3.2.25",
     "mqtt": "^4.2.8",
     "websocket-stream": "^5.5.2"
   }

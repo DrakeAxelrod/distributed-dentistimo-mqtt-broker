@@ -3,7 +3,7 @@ image: node:14-alpine
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
-    - node_modules
+    - node_modules/
 
 
 stages:

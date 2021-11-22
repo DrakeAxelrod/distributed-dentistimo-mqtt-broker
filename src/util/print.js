@@ -5,5 +5,4 @@ const print = (message, ...optionalParams) => {
     console.log(message, ...optionalParams);
   }
 };
-
 module.exports = print;
