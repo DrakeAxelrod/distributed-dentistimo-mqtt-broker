@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index",
     "sub": "node ./src/test/Subscriber.js",
     "pub": "node ./src/test/Publisher.js"
+  },
+  "engines": {
+    "node": "14.x"
   },
   "author": "DIT355-Team-16",
   "license": "ISC",
