@@ -5,7 +5,7 @@ const ws = require("websocket-stream");
 const print = require("../util/Logging");
 const { log } = console;
 
-const port = process.env.PORT || "1883";
+const port = process.env.PORT || 80;
 const user = process.env.USERNAME || "admin";
 const pass = process.env.PASSWORD || "admin";
 
