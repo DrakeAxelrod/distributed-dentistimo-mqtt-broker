@@ -1,4 +1,4 @@
-image: node:latest
+image: node:16-alpine
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -29,4 +29,3 @@ production:
     variables:
       - $HEROKU_APP_NAME
       - $HEROKU_API_KEY
-
