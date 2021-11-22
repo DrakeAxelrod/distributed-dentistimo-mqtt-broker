@@ -1,16 +1,32 @@
 image: node:latest
 
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+
 stages:
+- build
 - production
+
+build:
+  stage: build
+  tags:
+    - docker
+  script:
+    - npm install
+
 
 production:
   stage: production
   image: ruby:latest
   script:
-    - apt-get update -qy
+    - apk update && apk add git curl
     - apt-get install -y ruby-dev
     - gem install dpl
     - dpl --provider=heroku --app=APPNAME_OF_Heroku App --api-key=$HEROKU_API_KEY # security add the heroku api to CI/CD setting
   only:
     refs:
     - main  #branch name to deploy on heroku
+    variables:
+      - $HEROKU_APP_NAME
+      - $HEROKU_API_KEY
+
