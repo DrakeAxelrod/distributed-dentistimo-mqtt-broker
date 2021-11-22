@@ -30,7 +30,7 @@ deploy:
     name: production
     url: https://$HEROKU_APP_NAME.herokuapp.com/
   only:
-    ref:
+    refs:
       - main
     variables:
       - $HEROKU_APP_NAME
