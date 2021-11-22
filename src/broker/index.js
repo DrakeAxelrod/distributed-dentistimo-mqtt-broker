@@ -1,14 +1,7 @@
 const dotenv = require("dotenv");
 dotenv.config();
-const aedes = require("aedes");
 const server = require("http").createServer();
 const ws = require("websocket-stream");
-const print = require("../util/print");
-// const { log } = console;
-
-const port = process.env.PORT || 80;
-const user = process.env.USERNAME || "admin";
-const pass = process.env.PASSWORD || "admin";
 
 const authenticate = (client, username, password, callback) => {
   if (username === user && password.toString() === pass) {
@@ -19,17 +12,20 @@ const authenticate = (client, username, password, callback) => {
     callback(error, false);
   }
 };
-
-const broker = aedes({
+const aedes = require("aedes")({
   authenticate: authenticate,
 });
 
-ws.createServer({ server: server }, broker.handle);
+ws.createServer({ server: server }, aedes.handle);
+
+const port = process.env.PORT || 80;
+const user = process.env.USERNAME || "admin";
+const pass = process.env.PASSWORD || "admin";
 
 const start = () => {
-  server.listen(port, () => {
-    console.log("websocket server listening on port ", port);
-  });
+  // server.listen(port, () => {
+  //   console.log("websocket server listening on port ", port);
+  // });
   server.listen(port, () => {
     //log("Broker listening on port:", port);
     log("websocket server listening on port ", port);
