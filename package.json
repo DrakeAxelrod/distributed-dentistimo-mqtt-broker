@@ -9,7 +9,7 @@
     "pub": "node ./src/test/Publisher.js"
   },
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   },
   "author": "DIT355-Team-16",
   "license": "ISC",
