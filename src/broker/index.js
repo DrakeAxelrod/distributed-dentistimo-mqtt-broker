@@ -19,8 +19,8 @@ const aedes = require("aedes")({
 ws.createServer({ server: server }, aedes.handle);
 
 const port = process.env.PORT || 80;
-const user = process.env.USERNAME || "admin";
-const pass = process.env.PASSWORD || "admin";
+const user = process.env.BROKER_USERNAME || "admin";
+const pass = process.env.BROKER_PASSWORD || "admin";
 
 const start = () => {
   // server.listen(port, () => {
