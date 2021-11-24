@@ -5,9 +5,9 @@ const timestamp = require("../util/Timestamp")
 
 const { log } = console;
 
-const user = process.env.USERNAME || "admin";
-const pass = process.env.PASSWORD || "admin";
-const port = process.env.PORT || 80;
+const user = process.env.BROKER_USERNAME;
+const pass = process.env.BROKER_PASSWORD;
+//const port = process.env.PORT;
 const broker_uri = process.env.BROKER_URI
 
 const client = mqtt.connect(broker_uri, {

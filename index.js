@@ -4,9 +4,9 @@ const ws = require("websocket-stream");
 
 ws.createServer({ server: httpServer }, aedes.handle);
 
-const port = process.env.PORT || 80;
-const user = process.env.BROKER_USERNAME || "admin";
-const pass = process.env.BROKER_PASSWORD || "admin";
+const port = process.env.PORT;
+const user = process.env.BROKER_USERNAME;
+const pass = process.env.BROKER_PASSWORD;
 
 const authenticate = (client, username, password, callback) => {
   if (username === user && password.toString() === pass) {
